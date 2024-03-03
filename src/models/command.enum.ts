@@ -1,0 +1,17 @@
+export const enum Command {
+  GenerateComponent = 'angular-refactor.generateComponent',
+  GenerateService = 'angular-refactor.generateService',
+  GeneratePipe = 'angular-refactor.generatePipe',
+  GenerateDirective = 'angular-refactor.generateDirective',
+  GenerateInterceptor = 'angular-refactor.generateInterceptor',
+  GenerateGuard = 'angular-refactor.generateGuard',
+  GenerateModule = 'angular-refactor.generateModule',
+  GenerateInterface = 'angular-refactor.generateInterface',
+  GenerateEnum = 'angular-refactor.generateEnum',
+  GenerateResolver = 'angular-refactor.generateResolver',
+  GenerateLibrary = 'angular-refactor.generateLibrary',
+  GenerateConfig = 'angular-refactor.generateConfig',
+  GenerateEnvironments = 'angular-refactor.generateEnvironments',
+  ToggleInlineTemplate = 'angular-refactor.toggleInlineTemplate',
+  ToggleInlineStyles = 'angular-refactor.toggleInlineStyles',
+}

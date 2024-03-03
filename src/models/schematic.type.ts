@@ -1,0 +1,15 @@
+export const enum SchematicType {
+  Component = 'component',
+  Service = 'service',
+  Pipe = 'pipe',
+  Directive = 'directive',
+  Module = 'module',
+  Guard = 'guard',
+  Interceptor = 'interceptor',
+  Interface = 'interface',
+  Enum = 'enum',
+  Resolver = 'resolver',
+  Library = 'library',
+  Config = 'config',
+  Environments = 'environments',
+}

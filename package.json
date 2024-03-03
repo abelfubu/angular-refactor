@@ -1,0 +1,156 @@
+{
+  "name": "angular-refactor",
+  "displayName": "Angular Refactor",
+  "description": "Angular refactor tools",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.87.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "angular-refactor.generateComponent",
+        "title": "Generate Angular Component"
+      },
+      {
+        "command": "angular-refactor.generateService",
+        "title": "Generate Angular Service"
+      },
+      {
+        "command": "angular-refactor.generatePipe",
+        "title": "Generate Angular Pipe"
+      },
+      {
+        "command": "angular-refactor.generateDirective",
+        "title": "Generate Angular Directive"
+      },
+      {
+        "command": "angular-refactor.generateInterceptor",
+        "title": "Generate Angular Interceptor"
+      },
+      {
+        "command": "angular-refactor.generateGuard",
+        "title": "Generate Angular Guard"
+      },
+      {
+        "command": "angular-refactor.generateModule",
+        "title": "Generate Angular Module"
+      },
+      {
+        "command": "angular-refactor.generateInterface",
+        "title": "Generate Angular Interface"
+      },
+      {
+        "command": "angular-refactor.generateEnum",
+        "title": "Generate Angular Enum"
+      },
+      {
+        "command": "angular-refactor.generateResolver",
+        "title": "Generate Angular Resolver"
+      },
+      {
+        "command": "angular-refactor.generateLibrary",
+        "title": "Generate Angular Library"
+      },
+      {
+        "command": "angular-refactor.generateEnvironments",
+        "title": "Generate Angular Environments"
+      },
+      {
+        "command": "angular-refactor.generateConfig",
+        "title": "Generate Angular Config"
+      },
+      {
+        "command": "angular-refactor.toggleInlineTemplate",
+        "title": "Toggle Inline Angular Template"
+      },
+      {
+        "command": "angular-refactor.toggleInlineStyles",
+        "title": "Toggle Inline Angular Styles"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "when": "explorerResourceIsFolder",
+          "command": "angular-refactor.generateComponent",
+          "group": "navigation"
+        },
+        {
+          "when": "explorerResourceIsFolder",
+          "command": "angular-refactor.generateService",
+          "group": "navigation"
+        },
+        {
+          "when": "explorerResourceIsFolder",
+          "command": "angular-refactor.generatePipe",
+          "group": "navigation"
+        },
+        {
+          "when": "explorerResourceIsFolder",
+          "command": "angular-refactor.generateDirective",
+          "group": "navigation"
+        },
+        {
+          "when": "explorerResourceIsFolder",
+          "command": "angular-refactor.generateInterceptor",
+          "group": "navigation"
+        },
+        {
+          "when": "explorerResourceIsFolder",
+          "command": "angular-refactor.generateGuard",
+          "group": "navigation"
+        },
+        {
+          "when": "explorerResourceIsFolder",
+          "command": "angular-refactor.generateModule",
+          "group": "navigation"
+        },
+        {
+          "when": "explorerResourceIsFolder",
+          "command": "angular-refactor.generateInterface",
+          "group": "navigation"
+        },
+        {
+          "when": "explorerResourceIsFolder",
+          "command": "angular-refactor.generateEnum",
+          "group": "navigation"
+        },
+        {
+          "when": "explorerResourceIsFolder",
+          "command": "angular-refactor.generateResolver",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.87.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.2",
+    "@typescript-eslint/parser": "^7.0.2",
+    "@vscode/test-cli": "^0.0.6",
+    "@vscode/test-electron": "^2.3.9",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3",
+    "vscode-languageserver-protocol": "^3.17.5"
+  },
+  "dependencies": {
+    "fp-ts": "^2.16.2",
+    "html-format": "^1.1.6"
+  }
+}
