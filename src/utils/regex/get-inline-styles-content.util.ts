@@ -1,8 +1,5 @@
-const literal = /styles\s*:\s*`([\s\S]*?)`/;
-const regex = /styles\s*:\s*\[\s*`([\s\S]*?)`\s*\]/;
+const regex = /styles\s*:\s*`([\s\S]*?)`/;
 
 export function getInlineStylesContent(text: string): RegExpExecArray | null {
-  console.log('1', literal.exec(text));
-  console.log('2', regex.exec(text));
-  return literal.exec(text);
+  return regex.exec(text);
 }

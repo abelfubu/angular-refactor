@@ -74,8 +74,20 @@
         "title": "Toggle Inline Angular Styles"
       }
     ],
+    "submenus": [
+      {
+        "id": "angular-schematics",
+        "label": "Angular Schematics"
+      }
+    ],
     "menus": {
       "explorer/context": [
+        {
+          "submenu": "angular-schematics",
+          "group": "2_workspace"
+        }
+      ],
+      "angular-schematics": [
         {
           "when": "explorerResourceIsFolder",
           "command": "angular-refactor.generateComponent",
@@ -146,11 +158,10 @@
     "@vscode/test-cli": "^0.0.6",
     "@vscode/test-electron": "^2.3.9",
     "eslint": "^8.56.0",
-    "typescript": "^5.3.3",
-    "vscode-languageserver-protocol": "^3.17.5"
+    "typescript": "^5.3.3"
   },
   "dependencies": {
-    "fp-ts": "^2.16.2",
-    "html-format": "^1.1.6"
+    "html-format": "^1.1.6",
+    "vscode-languageserver-protocol": "^3.17.5"
   }
 }

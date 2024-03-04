@@ -22,15 +22,12 @@ export const toggleInlineStylesCommand: CommandDefinition = {
       window.showErrorMessage('No component found'),
     );
 
-    try {
-      const toggler = stylesTogglerFactory(document.getText());
-      console.log(toggler);
-      Guard.notNullOrEmpty(toggler, () =>
-        window.showErrorMessage('No template found'),
-      );
-      toggler.toggle(document);
-    } catch (error) {
-      console.log(error);
-    }
+    const toggler = stylesTogglerFactory(document.getText());
+
+    Guard.notNullOrEmpty(toggler, () =>
+      window.showErrorMessage('No template found'),
+    );
+
+    toggler.toggle(document);
   },
 };
