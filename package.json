@@ -72,6 +72,10 @@
       {
         "command": "angular-refactor.toggleInlineStyles",
         "title": "Toggle Inline Angular Styles"
+      },
+      {
+        "command": "angular-refactor.rename",
+        "title": "Angular rename"
       }
     ],
     "submenus": [
@@ -161,7 +165,9 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "@angular/language-service": "^17.2.4",
     "html-format": "^1.1.6",
+    "ts-morph": "^21.0.1",
     "vscode-languageserver-protocol": "^3.17.5"
   }
 }
