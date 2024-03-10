@@ -1,5 +1,5 @@
 <h1>
- <img src="assets/logo.png" height="40">
+ <img src="assets/logo.png" height="30">
  Angular Refactorizer - Visual Studio Code Extension
 </h1>
 
