@@ -1,8 +1,8 @@
 import { window } from 'vscode';
-import { SchematicType } from '../../models/schematic.type';
+import { ConstructType } from '../../models/construct.type';
 
 export async function promptSelect(
-  type: SchematicType,
+  type: ConstructType,
   options: string[],
 ): Promise<string | undefined> {
   const pick = await window.showQuickPick(

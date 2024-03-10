@@ -1,6 +1,6 @@
-import { SchematicType } from './schematic.type';
+import { ConstructType } from './construct.type';
 
 export interface GenerateConfig {
-  type: SchematicType;
+  type: ConstructType;
   command: string;
 }

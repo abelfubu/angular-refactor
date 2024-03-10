@@ -1,4 +1,4 @@
-export const enum SchematicType {
+export const enum ConstructType {
   Component = 'component',
   Service = 'service',
   Pipe = 'pipe',

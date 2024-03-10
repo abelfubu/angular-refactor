@@ -1,7 +1,12 @@
 {
-  "name": "angular-refactor",
-  "displayName": "Angular Refactor",
+  "name": "angular-refactorizer",
+  "displayName": "Angular Refactorizer",
   "description": "Angular refactor tools",
+  "repository": {
+    "url": "https://github.com/abelfubu/angular-refactor",
+    "type": "git"
+  },
+  "icon": "assets/logo.png",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.87.0"
@@ -9,73 +14,83 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onLanguage:typescript"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "angular-refactor.generateComponent",
+        "command": "angular-refactorizer.generateComponent",
         "title": "Generate Angular Component"
       },
       {
-        "command": "angular-refactor.generateService",
+        "command": "angular-refactorizer.generateService",
         "title": "Generate Angular Service"
       },
       {
-        "command": "angular-refactor.generatePipe",
+        "command": "angular-refactorizer.generatePipe",
         "title": "Generate Angular Pipe"
       },
       {
-        "command": "angular-refactor.generateDirective",
+        "command": "angular-refactorizer.generateDirective",
         "title": "Generate Angular Directive"
       },
       {
-        "command": "angular-refactor.generateInterceptor",
+        "command": "angular-refactorizer.generateInterceptor",
         "title": "Generate Angular Interceptor"
       },
       {
-        "command": "angular-refactor.generateGuard",
+        "command": "angular-refactorizer.generateGuard",
         "title": "Generate Angular Guard"
       },
       {
-        "command": "angular-refactor.generateModule",
+        "command": "angular-refactorizer.generateModule",
         "title": "Generate Angular Module"
       },
       {
-        "command": "angular-refactor.generateInterface",
+        "command": "angular-refactorizer.generateInterface",
         "title": "Generate Angular Interface"
       },
       {
-        "command": "angular-refactor.generateEnum",
+        "command": "angular-refactorizer.generateEnum",
         "title": "Generate Angular Enum"
       },
       {
-        "command": "angular-refactor.generateResolver",
+        "command": "angular-refactorizer.generateResolver",
         "title": "Generate Angular Resolver"
       },
       {
-        "command": "angular-refactor.generateLibrary",
+        "command": "angular-refactorizer.generateLibrary",
         "title": "Generate Angular Library"
       },
       {
-        "command": "angular-refactor.generateEnvironments",
+        "command": "angular-refactorizer.generateEnvironments",
         "title": "Generate Angular Environments"
       },
       {
-        "command": "angular-refactor.generateConfig",
+        "command": "angular-refactorizer.generateConfig",
         "title": "Generate Angular Config"
       },
       {
-        "command": "angular-refactor.toggleInlineTemplate",
+        "command": "angular-refactorizer.toggleInlineTemplate",
         "title": "Toggle Inline Angular Template"
       },
       {
-        "command": "angular-refactor.toggleInlineStyles",
+        "command": "angular-refactorizer.toggleInlineStyles",
         "title": "Toggle Inline Angular Styles"
       },
       {
-        "command": "angular-refactor.rename",
-        "title": "Angular rename"
+        "command": "angular-refactorizer.renameComponent",
+        "title": "Angular Rename Component"
+      },
+      {
+        "command": "angular-refactorizer.renameDirective",
+        "title": "Angular Rename Directive"
+      },
+      {
+        "command": "angular-refactorizer.renamePipe",
+        "title": "Angular Rename Pipe"
       }
     ],
     "submenus": [
@@ -87,6 +102,21 @@
     "menus": {
       "explorer/context": [
         {
+          "when": "resourceFilename =~ /^.+\\.component\\.(spec.ts|scss|css|sass|less|html|ts)$/",
+          "command": "angular-refactorizer.renameComponent",
+          "group": "navigation"
+        },
+        {
+          "when": "resourceFilename =~ /^.+\\.directive\\.(spec.ts|ts)$/",
+          "command": "angular-refactorizer.renameDirective",
+          "group": "navigation"
+        },
+        {
+          "when": "resourceFilename =~ /^.+\\.pipe\\.(spec.ts|ts)$/",
+          "command": "angular-refactorizer.renamePipe",
+          "group": "navigation"
+        },
+        {
           "submenu": "angular-schematics",
           "group": "2_workspace"
         }
@@ -94,52 +124,52 @@
       "angular-schematics": [
         {
           "when": "explorerResourceIsFolder",
-          "command": "angular-refactor.generateComponent",
+          "command": "angular-refactorizer.generateComponent",
           "group": "navigation"
         },
         {
           "when": "explorerResourceIsFolder",
-          "command": "angular-refactor.generateService",
+          "command": "angular-refactorizer.generateService",
           "group": "navigation"
         },
         {
           "when": "explorerResourceIsFolder",
-          "command": "angular-refactor.generatePipe",
+          "command": "angular-refactorizer.generatePipe",
           "group": "navigation"
         },
         {
           "when": "explorerResourceIsFolder",
-          "command": "angular-refactor.generateDirective",
+          "command": "angular-refactorizer.generateDirective",
           "group": "navigation"
         },
         {
           "when": "explorerResourceIsFolder",
-          "command": "angular-refactor.generateInterceptor",
+          "command": "angular-refactorizer.generateInterceptor",
           "group": "navigation"
         },
         {
           "when": "explorerResourceIsFolder",
-          "command": "angular-refactor.generateGuard",
+          "command": "angular-refactorizer.generateGuard",
           "group": "navigation"
         },
         {
           "when": "explorerResourceIsFolder",
-          "command": "angular-refactor.generateModule",
+          "command": "angular-refactorizer.generateModule",
           "group": "navigation"
         },
         {
           "when": "explorerResourceIsFolder",
-          "command": "angular-refactor.generateInterface",
+          "command": "angular-refactorizer.generateInterface",
           "group": "navigation"
         },
         {
           "when": "explorerResourceIsFolder",
-          "command": "angular-refactor.generateEnum",
+          "command": "angular-refactorizer.generateEnum",
           "group": "navigation"
         },
         {
           "when": "explorerResourceIsFolder",
-          "command": "angular-refactor.generateResolver",
+          "command": "angular-refactorizer.generateResolver",
           "group": "navigation"
         }
       ]
@@ -165,6 +195,7 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "@angular-devkit/core": "^17.2.3",
     "@angular/language-service": "^17.2.4",
     "html-format": "^1.1.6",
     "ts-morph": "^21.0.1",

@@ -1,71 +1,67 @@
-# angular-refactor README
+<h1>
+ <img src="assets/logo.png" height="40">
+ Angular Refactorizer - Visual Studio Code Extension
+</h1>
 
-This is the README for your extension "angular-refactor". After writing up a brief description, we recommend including the following sections.
+Welcome to Angular Refactorizer, your go-to tool for efficiently refactoring and managing Angular applications. Streamline your development workflow with our powerful set of features designed to enhance productivity and code organization.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+### Angular Schematics
 
-For example if there is an image subfolder under your extension project workspace:
+#### 1. **Create Angular Artifacts**
 
-\!\[feature X\]\(images/feature-x.png\)
+- Quickly generate essential Angular components, directives, pipes, services, interceptors, modules, enums, interfaces, classes, and libraries.
+- Accessible through the context menu in the file explorer for seamless integration into your development process.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+#### 2. **Add Environments and Configuration**
 
-## Requirements
+- Simplify environment and configuration management by adding settings directly through the context menu.
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+### Code Refactors (with Code Actions)
 
-## Extension Settings
+#### 1. **Toggle Inline Templates**
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+- Swiftly switch between inline templates and separate HTML files.
+- Enhance code readability and maintainability by organizing your templates efficiently.
 
-For example:
+#### 2. **Toggle Inline Styles**
 
-This extension contributes the following settings:
+- Seamlessly toggle between inline styles and external SCSS files.
+- Keep your styles modular and well-structured for a cleaner codebase.
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+#### 3. **Rename Angular Artifacts**
 
-## Known Issues
+- Effortlessly rename components, directives, and pipes.
+- Automatically update all related files (SCSS, TypeScript, spec.ts) and fix references and selectors throughout your entire application.
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+## Getting Started
 
-## Release Notes
+1. **Installation:**
 
-Users appreciate release notes as you update your extension.
+   - Install the Angular Refactorizer extension from the Visual Studio Code Marketplace by searching for `abelfubu.angular-refactorizer`.
 
-### 1.0.0
+2. **Usage:**
 
-Initial release of ...
+   - Right-click on files or folders in the file explorer to access Angular schematics.
+   - Utilize code actions to perform quick and efficient refactors.
 
-### 1.0.1
+3. **Customization:**
+   - Explore configuration options to tailor the extension to your specific needs.
+   - Adjust settings for a seamless integration with your Angular projects.
 
-Fixed issue #.
+## Feedback and Contributions
 
-### 1.1.0
+We value your feedback and encourage you to contribute to the Angular Refactorizer extension. Feel free to open issues, suggest new features, or submit pull requests on our [GitHub repository](#).
 
-Added features X, Y, and Z.
+## Support
+
+For any queries, issues, or assistance, please reach out to us through our [support channel](#).
+
+## License
+
+This extension is licensed under the [MIT License](LICENSE.md). See the [license file](LICENSE.md) for more details.
 
 ---
 
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+Make your Angular development experience smoother and more enjoyable with Angular Refactorizer. Happy coding! 🚀
