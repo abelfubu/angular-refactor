@@ -1,27 +1,26 @@
-import * as fs from 'fs';
-import * as path from 'path';
+import { existsSync, statSync } from 'fs';
+import { dirname, normalize, relative, sep } from 'path';
 
 export function getWorkspaceRelativePath(
   fullPath: string,
   basePath: string,
 ): string | null {
-  const normalizedFullPath = path.normalize(fullPath);
-  const normalizedBasePath = path.normalize(basePath);
+  const normalizedFullPath = normalize(fullPath);
+  const normalizedBasePath = normalize(basePath);
 
   // Check if fullPath is a file, and if so, extract its directory
   const updatedFullPath =
-    fs.existsSync(normalizedFullPath) &&
-    fs.statSync(normalizedFullPath).isFile()
-      ? path.dirname(normalizedFullPath)
+    existsSync(normalizedFullPath) && statSync(normalizedFullPath).isFile()
+      ? dirname(normalizedFullPath)
       : normalizedFullPath;
 
   if (!normalizedFullPath.startsWith(updatedFullPath)) {
     return null;
   }
 
-  const relativePath = path.relative(normalizedBasePath, updatedFullPath);
+  const relativePath = relative(normalizedBasePath, updatedFullPath);
 
-  const parts = relativePath.split(path.sep);
+  const parts = relativePath.split(sep);
   const srcIndex = parts.indexOf('src');
   const appIndex = parts.indexOf('app');
 
@@ -29,5 +28,5 @@ export function getWorkspaceRelativePath(
     return null;
   }
 
-  return parts.slice(appIndex + 1).join(path.sep);
+  return parts.slice(appIndex + 1).join(sep);
 }

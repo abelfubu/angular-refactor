@@ -1,5 +1,4 @@
-import { readFileSync, unlinkSync } from 'fs';
-import { WorkspaceEdit, workspace } from 'vscode';
+import { Uri, WorkspaceEdit, workspace } from 'vscode';
 import { getRange } from '../../utils/string/range.util';
 import { StylesToggler } from './styles.toggler';
 
@@ -7,13 +6,16 @@ export const fileToInlineStylesToggler = (
   exec: RegExpExecArray,
 ): StylesToggler => ({
   toggle: async (document) => {
-    const templateFilePath = document.fileName.replace(/.ts$/, '.scss');
-    const scssFileContent = readFileSync(templateFilePath).toString();
+    const templateFilePath = Uri.file(
+      document.fileName.replace(/.ts$/, '.scss'),
+    );
+    const scssFile = await workspace.fs.readFile(templateFilePath);
+    const scssFileContent = scssFile.toString();
     const range = getRange(exec, document);
     const edit = new WorkspaceEdit();
-    const newContent = `styles: \`${scssFileContent}\``;
+    const newContent = `styles: \`\n${scssFileContent}\n\``;
     edit.replace(document.uri, range, newContent);
-    unlinkSync(templateFilePath);
+    await workspace.fs.delete(templateFilePath);
     workspace.applyEdit(edit);
   },
 });

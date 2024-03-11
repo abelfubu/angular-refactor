@@ -4,7 +4,7 @@ import {
   dasherize,
 } from '@angular-devkit/core/src/utils/strings';
 import { basename, dirname } from 'path';
-import { Project, SyntaxKind } from 'ts-morph';
+import { NewLineKind, Project, SyntaxKind } from 'ts-morph';
 import { window, workspace } from 'vscode';
 import { Guard } from '../../guards/guard';
 import { ConstructWithSelector } from '../../models/construct-with-selector.type';
@@ -152,7 +152,19 @@ export async function renamer(constructType: ConstructWithSelector) {
     { overwrite: true },
   );
 
-  await project.save();
+  project.getSourceFiles().forEach(async (sourceFile) => {
+    if (sourceFile.compilerNode.endOfFileToken.getFullText()[0] !== '\n') {
+      project.manipulationSettings.set({ newLineKind: NewLineKind.LineFeed });
+    } else {
+      project.manipulationSettings.set({
+        newLineKind: NewLineKind.CarriageReturnLineFeed,
+      });
+    }
+
+    await sourceFile.save();
+    project.removeSourceFile(sourceFile);
+  });
+
   window.showInformationMessage(
     `${classify(constructType)} '${basename(
       documentPath.split('.')[0],
