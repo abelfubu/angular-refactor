@@ -17,4 +17,5 @@ export const enum Command {
   RenameComponent = 'angular-refactorizer.renameComponent',
   RenameDirective = 'angular-refactorizer.renameDirective',
   RenamePipe = 'angular-refactorizer.renamePipe',
+  Test = 'angular-refactorizer.test',
 }

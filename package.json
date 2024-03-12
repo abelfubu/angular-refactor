@@ -2,7 +2,7 @@
   "name": "angular-refactorizer",
   "displayName": "Angular Refactorizer",
   "description": "Angular refactor tools",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "repository": {
     "url": "https://github.com/abelfubu/angular-refactor",
     "type": "git"
@@ -96,6 +96,10 @@
       {
         "command": "angular-refactorizer.renamePipe",
         "title": "Angular Rename Pipe"
+      },
+      {
+        "command": "angular-refactorizer.test",
+        "title": "Angular Test"
       }
     ],
     "submenus": [
@@ -204,7 +208,6 @@
   },
   "dependencies": {
     "@angular-devkit/core": "^17.2.3",
-    "@angular/language-service": "^17.2.4",
     "html-format": "^1.1.6",
     "ts-morph": "^21.0.1",
     "vscode-languageserver-protocol": "^3.17.5"
