@@ -5,5 +5,6 @@ import { renamer } from '../../tools/rename/renamer';
 
 export const renameDirectiveCommand: CommandDefinition = {
   id: Command.RenameDirective,
+  progressTitle: 'Renaming directive...',
   execute: async () => renamer(ConstructType.Directive),
 };

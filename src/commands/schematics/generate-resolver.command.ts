@@ -8,6 +8,7 @@ import { generate } from '../../utils/terminal/generate.util';
 
 export const generateResolverCommand: CommandDefinition = {
   id: Command.GenerateResolver,
+  progressTitle: 'Generating resolver...',
   execute: async () => {
     Guard.notAngularWorkspace();
 

@@ -8,6 +8,7 @@ import { generate } from '../../utils/terminal/generate.util';
 
 export const generateEnumCommand: CommandDefinition = {
   id: Command.GenerateEnum,
+  progressTitle: 'Generating enum...',
   execute: async () => {
     Guard.notAngularWorkspace();
 

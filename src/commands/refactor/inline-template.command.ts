@@ -6,6 +6,7 @@ import { templateTogglerFactory } from '../../tools/template/tempate-toggler.fac
 
 export const toggleInlineTemplateCommand: CommandDefinition = {
   id: Command.ToggleInlineTemplate,
+  progressTitle: 'Toggling inline template...',
   execute: async () => {
     Guard.notAngularWorkspace();
 

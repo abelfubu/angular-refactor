@@ -7,6 +7,7 @@ import { isComponentTsFile } from '../../utils/regex/is-component-ts-file.util';
 
 export const toggleInlineStylesCommand: CommandDefinition = {
   id: Command.ToggleInlineStyles,
+  progressTitle: 'Toggling inline styles...',
   execute: async () => {
     Guard.notAngularWorkspace();
 

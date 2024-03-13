@@ -89,7 +89,9 @@ export function componentRenamer(): Renamer {
           SyntaxKind.StringLiteral,
         );
 
-        url?.setLiteralValue(`./${filename}.${ConstructType.Component}.css`);
+        url?.setLiteralValue(
+          `./${filename}.${ConstructType.Component}.${angularJson.styles}`,
+        );
       }
 
       const styleUrlProperty = getObjectProperty(
@@ -100,7 +102,7 @@ export function componentRenamer(): Renamer {
 
       if (styleUrlProperty) {
         styleUrlProperty.setLiteralValue(
-          `./${filename}.${ConstructType.Component}.html`,
+          `./${filename}.${ConstructType.Component}.${angularJson.styles}`,
         );
       }
 

@@ -8,6 +8,7 @@ import { generate } from '../../utils/terminal/generate.util';
 
 export const generateGuardCommand: CommandDefinition = {
   id: Command.GenerateGuard,
+  progressTitle: 'Generating guard...',
   execute: async () => {
     Guard.notAngularWorkspace();
 

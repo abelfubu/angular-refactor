@@ -8,6 +8,7 @@ import { generate } from '../../utils/terminal/generate.util';
 
 export const generateInterceptorCommand: CommandDefinition = {
   id: Command.GenerateInterceptor,
+  progressTitle: 'Generating interceptor...',
   execute: async () => {
     Guard.notAngularWorkspace();
 

@@ -5,5 +5,6 @@ import { renamer } from '../../tools/rename/renamer';
 
 export const renameComponentCommand: CommandDefinition = {
   id: Command.RenameComponent,
-  execute: async () => renamer(ConstructType.Component),
+  progressTitle: 'Renaming component...',
+  execute: () => renamer(ConstructType.Component),
 };

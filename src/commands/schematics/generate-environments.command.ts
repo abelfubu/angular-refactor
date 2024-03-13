@@ -6,6 +6,7 @@ import { generate } from '../../utils/terminal/generate.util';
 
 export const generateEnvironmentsCommand: CommandDefinition = {
   id: Command.GenerateEnvironments,
+  progressTitle: 'Generating environments...',
   execute: async () => {
     Guard.notAngularWorkspace();
 

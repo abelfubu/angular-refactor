@@ -8,6 +8,7 @@ import { generate } from '../../utils/terminal/generate.util';
 
 export const generateDirectiveCommand: CommandDefinition = {
   id: Command.GenerateDirective,
+  progressTitle: 'Generating directive...',
   execute: async () => {
     Guard.notAngularWorkspace();
 

@@ -5,5 +5,6 @@ import { renamer } from '../../tools/rename/renamer';
 
 export const renamePipeCommand: CommandDefinition = {
   id: Command.RenamePipe,
+  progressTitle: 'Renaming pipe...',
   execute: async () => renamer(ConstructType.Pipe),
 };

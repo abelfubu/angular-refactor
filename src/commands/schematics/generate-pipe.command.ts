@@ -8,6 +8,7 @@ import { generate } from '../../utils/terminal/generate.util';
 
 export const generatePipeCommand: CommandDefinition = {
   id: Command.GeneratePipe,
+  progressTitle: 'Generating pipe...',
   execute: async () => {
     Guard.notAngularWorkspace();
 

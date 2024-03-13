@@ -5,6 +5,7 @@ import { getAngularJsonProjectInfo } from '../../tools/angularjson/get-angular-j
 
 export const testCommand: CommandDefinition = {
   id: Command.Test,
+  progressTitle: 'Testing...',
   execute: async () => {
     const response = await getAngularJsonProjectInfo(
       window.activeTextEditor?.document?.uri!,

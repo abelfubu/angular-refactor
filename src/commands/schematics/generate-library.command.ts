@@ -7,6 +7,7 @@ import { generate } from '../../utils/terminal/generate.util';
 
 export const generateLibraryCommand: CommandDefinition = {
   id: Command.GenerateLibrary,
+  progressTitle: 'Generating library...',
   execute: async () => {
     Guard.notAngularWorkspace();
 
