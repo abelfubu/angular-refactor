@@ -4,6 +4,7 @@ import { ObjectLiteralExpression, Project, SyntaxKind } from 'ts-morph';
 import { window, workspace } from 'vscode';
 import { Guard } from '../../guards/guard';
 import { ConstructType } from '../../models/construct.type';
+import { AngularDecoratorMetadata } from '../../utils/angular/angular-decorator-metadata.model';
 import { findAndReplace } from '../../utils/file-system/find-and-replace.util';
 import { renameFilesInFolder } from '../../utils/file-system/rename-files-in-folder.util';
 import { getObjectProperty } from '../../utils/typescript/get-object-property.util';
@@ -19,17 +20,15 @@ export function directiveRenamer(): Renamer {
       metadata: ObjectLiteralExpression,
       angularJson: AngularJsonProjectInfo,
     ) => {
-      const selector = 'selector';
-
       const metadataProperty = getObjectProperty(
         metadata,
-        selector,
+        AngularDecoratorMetadata.Selector,
         SyntaxKind.StringLiteral,
       );
 
-      const oldProperty = metadataProperty?.getLiteralValue();
+      const oldSelector = metadataProperty?.getLiteralValue();
 
-      Guard.notNullOrEmpty(oldProperty, 'Directive selector not found');
+      Guard.notNullOrEmpty(oldSelector, 'Directive selector not found');
 
       const newFileName = await window.showInputBox({
         prompt: 'Enter new directive name',
@@ -41,12 +40,11 @@ export function directiveRenamer(): Renamer {
       const nameWithoutExtension = newFileName.split('.').at(0);
 
       const filename = dasherize(String(nameWithoutExtension));
-      const newName = `${angularJson.prefix}${classify(filename)}`;
-      const unbracketized = oldProperty.replace(/\[|\]/g, '');
+      const replacer = `${angularJson.prefix}${classify(filename)}`;
+      const unbracketized = oldSelector.replace(/\[|\]/g, '');
 
-      const metadataValue = `[${newName}]`;
+      const metadataValue = `[${replacer}]`;
       const regex = new RegExp(unbracketized, 'g');
-      const replacer = newName;
 
       // Updates the value of the (selector | name) with the new name
       metadataProperty?.setLiteralValue(metadataValue);

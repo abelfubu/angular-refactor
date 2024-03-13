@@ -4,6 +4,7 @@ import { ObjectLiteralExpression, Project, SyntaxKind } from 'ts-morph';
 import { window, workspace } from 'vscode';
 import { Guard } from '../../guards/guard';
 import { ConstructType } from '../../models/construct.type';
+import { AngularDecoratorMetadata } from '../../utils/angular/angular-decorator-metadata.model';
 import { findAndReplace } from '../../utils/file-system/find-and-replace.util';
 import { renameFilesInFolder } from '../../utils/file-system/rename-files-in-folder.util';
 import { getObjectProperty } from '../../utils/typescript/get-object-property.util';
@@ -19,17 +20,15 @@ export function pipeRenamer(): Renamer {
       metadata: ObjectLiteralExpression,
       _angularJson: AngularJsonProjectInfo,
     ) => {
-      const selector = 'name';
-
       const metadataProperty = getObjectProperty(
         metadata,
-        selector,
+        AngularDecoratorMetadata.Name,
         SyntaxKind.StringLiteral,
       );
 
-      const oldProperty = metadataProperty?.getLiteralValue();
+      const oldName = metadataProperty?.getLiteralValue();
 
-      Guard.notNullOrEmpty(oldProperty, 'Pipe selector not found');
+      Guard.notNullOrEmpty(oldName, 'Pipe selector not found');
 
       const newFileName = await window.showInputBox({
         prompt: 'Enter new pipe name',
@@ -41,11 +40,10 @@ export function pipeRenamer(): Renamer {
       const nameWithoutExtension = newFileName.split('.').at(0);
 
       const filename = dasherize(String(nameWithoutExtension));
-      const newName = camelize(filename);
+      const replacer = camelize(filename);
 
-      const metadataValue = newName;
-      const regex = new RegExp(`\\b${oldProperty}\\b`, 'g');
-      const replacer = newName;
+      const metadataValue = replacer;
+      const regex = new RegExp(`\\b${oldName}\\b`, 'g');
 
       // Updates the value of the (selector | name) with the new name
       metadataProperty?.setLiteralValue(metadataValue);

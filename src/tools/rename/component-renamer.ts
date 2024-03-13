@@ -4,6 +4,7 @@ import { ObjectLiteralExpression, Project, SyntaxKind } from 'ts-morph';
 import { window, workspace } from 'vscode';
 import { Guard } from '../../guards/guard';
 import { ConstructType } from '../../models/construct.type';
+import { AngularDecoratorMetadata } from '../../utils/angular/angular-decorator-metadata.model';
 import { findAndReplace } from '../../utils/file-system/find-and-replace.util';
 import { renameFilesInFolder } from '../../utils/file-system/rename-files-in-folder.util';
 import { getObjectProperty } from '../../utils/typescript/get-object-property.util';
@@ -19,17 +20,15 @@ export function componentRenamer(): Renamer {
       metadata: ObjectLiteralExpression,
       angularJson: AngularJsonProjectInfo,
     ) => {
-      const selector = 'selector';
-
       const metadataProperty = getObjectProperty(
         metadata,
-        selector,
+        AngularDecoratorMetadata.Selector,
         SyntaxKind.StringLiteral,
       );
 
-      const oldProperty = metadataProperty?.getLiteralValue();
+      const oldSelector = metadataProperty?.getLiteralValue();
 
-      Guard.notNullOrEmpty(oldProperty, `Component selector not found`);
+      Guard.notNullOrEmpty(oldSelector, `Component selector not found`);
 
       const newFileName = await window.showInputBox({
         prompt: `Enter new component name`,
@@ -43,7 +42,7 @@ export function componentRenamer(): Renamer {
       const filename = dasherize(String(nameWithoutExtension));
 
       const metadataValue = `${angularJson.prefix}-${filename}`;
-      const regex = new RegExp(`\\b${selector}\\b`, 'g');
+      const regex = new RegExp(`\\b${oldSelector}\\b`, 'g');
       const replacer = `${angularJson.prefix}-${filename}`;
 
       // Updates the value of the (selector | name) with the new name
@@ -73,7 +72,7 @@ export function componentRenamer(): Renamer {
       }
 
       await renameFilesInFolder({
-        extensions: [angularJson.styles, 'ts', 'html', 'spec.ts'],
+        extensions: ['scss', 'css', 'less', 'ts', 'html', 'spec.ts'],
         mainTsFile: documentPath,
         newName: filename,
         constructType: ConstructType.Component,
@@ -81,7 +80,7 @@ export function componentRenamer(): Renamer {
 
       const styleUrlsProperty = getObjectProperty(
         metadata,
-        'styleUrls',
+        AngularDecoratorMetadata.StyleUrls,
         SyntaxKind.ArrayLiteralExpression,
       );
 
@@ -95,7 +94,7 @@ export function componentRenamer(): Renamer {
 
       const styleUrlProperty = getObjectProperty(
         metadata,
-        'styleUrl',
+        AngularDecoratorMetadata.StyleUrl,
         SyntaxKind.StringLiteral,
       );
 
@@ -107,7 +106,7 @@ export function componentRenamer(): Renamer {
 
       const templateUrl = getObjectProperty(
         metadata,
-        'templateUrl',
+        AngularDecoratorMetadata.TemplateUrl,
         SyntaxKind.StringLiteral,
       );
 

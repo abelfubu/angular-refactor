@@ -2,6 +2,7 @@ import { classify } from '@angular-devkit/core/src/utils/strings';
 import { Project, SyntaxKind } from 'ts-morph';
 import { Uri } from 'vscode';
 import { ConstructType } from '../../models/construct.type';
+import { AngularDecoratorMetadata } from '../../utils/angular/angular-decorator-metadata.model';
 import { getDecoratorMetadata } from '../../utils/typescript/get-decorator-metadata.util';
 import { getObjectProperty } from '../../utils/typescript/get-object-property.util';
 
@@ -37,7 +38,7 @@ export async function findAndReplaceInComponentInlineTemplate({
 
   const selectorValue = getObjectProperty(
     metadata,
-    'template',
+    AngularDecoratorMetadata.Template,
     SyntaxKind.NoSubstitutionTemplateLiteral,
   );
 

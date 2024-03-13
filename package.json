@@ -2,7 +2,7 @@
   "name": "angular-refactorizer",
   "displayName": "Angular Refactorizer",
   "description": "Angular refactor tools",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "repository": {
     "url": "https://github.com/abelfubu/angular-refactor",
     "type": "git"
