@@ -1,4 +1,4 @@
-import { Range, TextDocument } from 'vscode';
+import { CodeActionKind, Range, TextDocument } from 'vscode';
 import { CodeActionDefinition } from '../../models/code-action-definition.model';
 import { Command } from '../../models/command.enum';
 
@@ -24,6 +24,7 @@ export const inlineStylesCodeAction: CodeActionDefinition = {
         return [
           {
             command: Command.ToggleInlineStyles,
+            kind: CodeActionKind.RefactorInline,
             title: 'Toggle inline styles',
             tooltip: 'Toggle inline styles',
           },

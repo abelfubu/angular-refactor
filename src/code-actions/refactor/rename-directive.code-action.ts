@@ -1,4 +1,4 @@
-import { Range, TextDocument } from 'vscode';
+import { CodeActionKind, Range, TextDocument } from 'vscode';
 import { CodeActionDefinition } from '../../models/code-action-definition.model';
 import { Command } from '../../models/command.enum';
 
@@ -20,6 +20,7 @@ export const renameDirectiveCodeAction: CodeActionDefinition = {
         return [
           {
             command: Command.RenameDirective,
+            kind: CodeActionKind.Refactor,
             title: 'Rename Angular Directive',
             tooltip: 'Rename Angular Directive',
           },

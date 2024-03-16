@@ -2,7 +2,7 @@
   "name": "angular-refactorizer",
   "displayName": "Angular Refactorizer",
   "description": "Angular refactor tools",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "repository": {
     "url": "https://github.com/abelfubu/angular-refactor",
     "type": "git"
@@ -27,75 +27,93 @@
     "commands": [
       {
         "command": "angular-refactorizer.generateComponent",
-        "title": "Generate Angular Component"
+        "title": "Generate Angular Component",
+        "icon": "./icons/angular-component.svg"
       },
       {
         "command": "angular-refactorizer.generateService",
-        "title": "Generate Angular Service"
+        "title": "Generate Angular Service",
+        "icon": "./icons/angular-service.svg"
       },
       {
         "command": "angular-refactorizer.generatePipe",
-        "title": "Generate Angular Pipe"
+        "title": "Generate Angular Pipe",
+        "icon": "./icons/angular-pipe.svg"
       },
       {
         "command": "angular-refactorizer.generateDirective",
-        "title": "Generate Angular Directive"
+        "title": "Generate Angular Directive",
+        "icon": "./icons/angular-directive.svg"
       },
       {
         "command": "angular-refactorizer.generateInterceptor",
-        "title": "Generate Angular Interceptor"
+        "title": "Generate Angular Interceptor",
+        "icon": "./icons/typescript.svg"
       },
       {
         "command": "angular-refactorizer.generateGuard",
-        "title": "Generate Angular Guard"
+        "title": "Generate Angular Guard",
+        "icon": "./icons/angular-guard.svg"
       },
       {
         "command": "angular-refactorizer.generateModule",
-        "title": "Generate Angular Module"
+        "title": "Generate Angular Module",
+        "icon": "./icons/angular.svg"
       },
       {
         "command": "angular-refactorizer.generateInterface",
-        "title": "Generate Angular Interface"
+        "title": "Generate Angular Interface",
+        "icon": "./icons/typescript.svg"
       },
       {
         "command": "angular-refactorizer.generateEnum",
-        "title": "Generate Angular Enum"
+        "title": "Generate Angular Enum",
+        "icon": "./icons/typescript.svg"
       },
       {
         "command": "angular-refactorizer.generateResolver",
-        "title": "Generate Angular Resolver"
+        "title": "Generate Angular Resolver",
+        "icon": "./icons/angular-resolver.svg"
       },
       {
         "command": "angular-refactorizer.generateLibrary",
-        "title": "Generate Angular Library"
+        "title": "Generate Angular Library",
+        "icon": "./icons/angular.svg"
       },
       {
         "command": "angular-refactorizer.generateEnvironments",
-        "title": "Generate Angular Environments"
+        "title": "Generate Angular Environments",
+        "icon": "./icons/angular.svg"
       },
       {
         "command": "angular-refactorizer.generateConfig",
-        "title": "Generate Angular Config"
+        "title": "Generate Angular Config",
+        "icon": "./icons/angular.svg"
       },
       {
         "command": "angular-refactorizer.toggleInlineTemplate",
-        "title": "Toggle Inline Angular Template"
+        "title": "Toggle Inline Angular Template",
+        "icon": "./icons/templ.svg"
       },
       {
         "command": "angular-refactorizer.toggleInlineStyles",
-        "title": "Toggle Inline Angular Styles"
+        "title": "Toggle Inline Angular Styles",
+        "icon": "./icons/templ.svg"
       },
       {
         "command": "angular-refactorizer.renameComponent",
-        "title": "Angular Rename Component"
+        "title": "Angular Rename Component",
+        "icon": "./icons/angular-component.svg"
       },
       {
         "command": "angular-refactorizer.renameDirective",
-        "title": "Angular Rename Directive"
+        "title": "Angular Rename Directive",
+        "icon": "./icons/angular-directive.svg"
       },
       {
         "command": "angular-refactorizer.renamePipe",
-        "title": "Angular Rename Pipe"
+        "title": "Angular Rename Pipe",
+        "icon": "./icons/angular-pipe.svg"
       },
       {
         "command": "angular-refactorizer.test",
@@ -109,6 +127,23 @@
       }
     ],
     "menus": {
+      "editor/title": [
+        {
+          "when": "resourceFilename =~ /^.+\\.component\\.(spec.ts|scss|css|sass|less|html|ts)$/",
+          "command": "angular-refactorizer.renameComponent",
+          "group": "navigation"
+        },
+        {
+          "when": "resourceFilename =~ /^.+\\.directive\\.(spec.ts|ts)$/",
+          "command": "angular-refactorizer.renameDirective",
+          "group": "navigation"
+        },
+        {
+          "when": "resourceFilename =~ /^.+\\.pipe\\.(spec.ts|ts)$/",
+          "command": "angular-refactorizer.renamePipe",
+          "group": "navigation"
+        }
+      ],
       "explorer/context": [
         {
           "when": "resourceFilename =~ /^.+\\.component\\.(spec.ts|scss|css|sass|less|html|ts)$/",
@@ -204,10 +239,11 @@
     "@vscode/test-electron": "^2.3.9",
     "esbuild": "^0.20.1",
     "eslint": "^8.56.0",
-    "typescript": "^5.3.3"
+    "typescript": "5.1"
   },
   "dependencies": {
     "@angular-devkit/core": "^17.2.3",
+    "angular-html-parser": "^5.2.0",
     "html-format": "^1.1.6",
     "ts-morph": "^21.0.1",
     "vscode-languageserver-protocol": "^3.17.5"
